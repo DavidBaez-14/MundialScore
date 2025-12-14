@@ -15,7 +15,7 @@ public class ServicioPuntuacion {
         int realLocal = partido.getGolesLocal();
         int realVisitante = partido.getGolesVisitante();
         int predLocal = pronostico.getGolesLocalPronosticados();
-        int predVisitante = pronostico.golesVisitantePronosticados();
+        int predVisitante = pronostico.getGolesVisitantePronosticados();
 
         // 1. Acierto exacto -> 5 puntos
         if (realLocal == predLocal && realVisitante == predVisitante) {

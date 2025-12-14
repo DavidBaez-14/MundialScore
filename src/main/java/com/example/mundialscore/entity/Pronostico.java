@@ -71,7 +71,7 @@ public class Pronostico {
         this.golesLocalPronosticados = golesLocalPronosticados;
     }
 
-    public int golesVisitantePronosticados() {
+    public int getGolesVisitantePronosticados() {
         return golesVisitantePronosticados;
     }
 

@@ -84,7 +84,7 @@ public class PronosticoController {
             dto.setEquipoLocal(p.getPartido().getEquipoLocal());
             dto.setEquipoVisitante(p.getPartido().getEquipoVisitante());
             dto.setGolesLocalPredicho(p.getGolesLocalPronosticados());
-            dto.setGolesVisitantePredicho(p.golesVisitantePronosticados());
+            dto.setGolesVisitantePredicho(p.getGolesVisitantePronosticados());
             dto.setGolesLocalReal(p.getPartido().getGolesLocal());
             dto.setGolesVisitanteReal(p.getPartido().getGolesVisitante());
             dto.setPuntosObtenidos(p.getPuntosObtenidos());
