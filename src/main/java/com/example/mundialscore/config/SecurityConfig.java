@@ -30,10 +30,11 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/api/auth/**").permitAll() // Endpoints de Login/Registro
-                        .anyRequest().authenticated())
+                       // .requestMatchers("/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                     //   .requestMatchers("/h2-console/**").permitAll()
+                      //  .requestMatchers("/api/auth/register").permitAll() // Solo registro público
+                       // .anyRequest().authenticated())
+                        .anyRequest().permitAll()) 
                 .httpBasic(Customizer.withDefaults())
                 .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())); // Para consola H2
 

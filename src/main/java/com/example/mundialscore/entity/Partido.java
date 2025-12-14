@@ -18,6 +18,10 @@ public class Partido {
 
     private boolean finalizado;
 
+    private String grupo;  // A, B, C, D, E, F, G, H, I, J, K, L
+    private Integer fecha;  // 1, 2, 3
+    private String fase;    // GRUPOS, DIECISEISAVOS, OCTAVOS, CUARTOS, SEMIFINAL, FINAL
+
     public Partido() {
         this.finalizado = false;
     }
@@ -26,6 +30,16 @@ public class Partido {
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;
         this.finalizado = false;
+        this.fase = "GRUPOS";
+    }
+
+    public Partido(String equipoLocal, String equipoVisitante, String grupo, Integer fecha, String fase) {
+        this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante;
+        this.finalizado = false;
+        this.grupo = grupo;
+        this.fecha = fecha;
+        this.fase = fase;
     }
 
     // Getters and Setters
@@ -76,5 +90,29 @@ public class Partido {
 
     public void setFinalizado(boolean finalizado) {
         this.finalizado = finalizado;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
+    public Integer getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Integer fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getFase() {
+        return fase;
+    }
+
+    public void setFase(String fase) {
+        this.fase = fase;
     }
 }

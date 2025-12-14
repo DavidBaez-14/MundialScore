@@ -21,7 +21,7 @@ public class AutenticacionController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registrar")
     @Operation(summary = "Registrar un nuevo usuario")
     public ResponseEntity<String> registrar(@RequestBody Usuario usuario) {
         if (usuarioRepository.findByEmail(usuario.getEmail()).isPresent()) {
@@ -33,5 +33,16 @@ public class AutenticacionController {
         }
         usuarioRepository.save(usuario);
         return ResponseEntity.ok("Usuario registrado exitosamente");
+    }
+
+    @GetMapping("/usuario-autenticado")
+    @Operation(summary = "Obtener información del usuario autenticado")
+    public ResponseEntity<Usuario> miPerfil(org.springframework.security.core.Authentication authentication) {
+        String email = authentication.getName();
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        // Limpiar contraseña antes de enviar
+        usuario.setContrasena(null);
+        return ResponseEntity.ok(usuario);
     }
 }

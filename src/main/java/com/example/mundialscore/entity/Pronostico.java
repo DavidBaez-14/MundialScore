@@ -3,10 +3,10 @@ package com.example.mundialscore.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "predicciones", uniqueConstraints = {
+@Table(name = "pronosticos", uniqueConstraints = {
         @UniqueConstraint(columnNames = { "usuario_id", "partido_id" })
 })
-public class Prediccion {
+public class Pronostico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +20,20 @@ public class Prediccion {
     @JoinColumn(name = "partido_id", nullable = false)
     private Partido partido;
 
-    private int golesLocalPredichos;
-    private int golesVisitantePredichos;
+    private int golesLocalPronosticados;
+    private int golesVisitantePronosticados;
 
     private int puntosObtenidos;
 
-    public Prediccion() {
+    public Pronostico() {
         this.puntosObtenidos = 0;
     }
 
-    public Prediccion(Usuario usuario, Partido partido, int golesLocalPredichos, int golesVisitantePredichos) {
+    public Pronostico(Usuario usuario, Partido partido, int golesLocalPronosticados, int golesVisitantePronosticados) {
         this.usuario = usuario;
         this.partido = partido;
-        this.golesLocalPredichos = golesLocalPredichos;
-        this.golesVisitantePredichos = golesVisitantePredichos;
+        this.golesLocalPronosticados = golesLocalPronosticados;
+        this.golesVisitantePronosticados = golesVisitantePronosticados;
         this.puntosObtenidos = 0;
     }
 
@@ -63,20 +63,20 @@ public class Prediccion {
         this.partido = partido;
     }
 
-    public int getGolesLocalPredichos() {
-        return golesLocalPredichos;
+    public int getGolesLocalPronosticados() {
+        return golesLocalPronosticados;
     }
 
-    public void setGolesLocalPredichos(int golesLocalPredichos) {
-        this.golesLocalPredichos = golesLocalPredichos;
+    public void setGolesLocalPronosticados(int golesLocalPronosticados) {
+        this.golesLocalPronosticados = golesLocalPronosticados;
     }
 
-    public int getGolesVisitantePredichos() {
-        return golesVisitantePredichos;
+    public int golesVisitantePronosticados() {
+        return golesVisitantePronosticados;
     }
 
-    public void setGolesVisitantePredichos(int golesVisitantePredichos) {
-        this.golesVisitantePredichos = golesVisitantePredichos;
+    public void setGolesVisitantePronosticados(int golesVisitantePronosticados) {
+        this.golesVisitantePronosticados = golesVisitantePronosticados;
     }
 
     public int getPuntosObtenidos() {

@@ -1,6 +1,6 @@
 package com.example.mundialscore.dto;
 
-public class PrediccionDto {
+public class PronosticoDto {
     private Long partidoId;
     private int golesLocal;
     private int golesVisitante;

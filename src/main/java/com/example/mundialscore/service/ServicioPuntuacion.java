@@ -1,21 +1,21 @@
 package com.example.mundialscore.service;
 
 import com.example.mundialscore.entity.Partido;
-import com.example.mundialscore.entity.Prediccion;
+import com.example.mundialscore.entity.Pronostico;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ServicioPuntuacion {
 
-    public int calcularPuntos(Partido partido, Prediccion prediccion) {
+    public int calcularPuntos(Partido partido, Pronostico pronostico) {
         if (!partido.isFinalizado()) {
             return 0;
         }
 
         int realLocal = partido.getGolesLocal();
         int realVisitante = partido.getGolesVisitante();
-        int predLocal = prediccion.getGolesLocalPredichos();
-        int predVisitante = prediccion.getGolesVisitantePredichos();
+        int predLocal = pronostico.getGolesLocalPronosticados();
+        int predVisitante = pronostico.golesVisitantePronosticados();
 
         // 1. Acierto exacto -> 5 puntos
         if (realLocal == predLocal && realVisitante == predVisitante) {
